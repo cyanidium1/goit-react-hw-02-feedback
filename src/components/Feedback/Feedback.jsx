@@ -18,7 +18,9 @@ class MyClassComponent extends Component {
       good: this.state.good + 1,
       total: this.state.total + 1,
       percentage: this.state.percentage + 100,
-      average: (this.state.percentage + 100) / (this.state.total + 1),
+      average: Math.round(
+        (this.state.percentage + 100) / (this.state.total + 1)
+      ),
     });
   };
 
@@ -27,7 +29,9 @@ class MyClassComponent extends Component {
       neutral: this.state.neutral + 1,
       total: this.state.total + 1,
       percentage: this.state.percentage + 50,
-      average: (this.state.percentage + 50) / (this.state.total + 1),
+      average: Math.round(
+        (this.state.percentage + 50) / (this.state.total + 1)
+      ),
     });
   };
 
@@ -35,7 +39,7 @@ class MyClassComponent extends Component {
     this.setState({
       bad: this.state.bad + 1,
       total: this.state.total + 1,
-      average: this.state.percentage / (this.state.total + 1),
+      average: Math.round(this.state.percentage / (this.state.total + 1)),
     });
   };
 
