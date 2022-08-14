@@ -1,4 +1,5 @@
 import css from './Stats.module.css';
+import PropTypes from 'prop-types';
 
 const Stats = ({ props }) => {
   if (!props.good && !props.neutral && !props.bad) {
@@ -7,27 +8,28 @@ const Stats = ({ props }) => {
 
   const { good, neutral, bad } = props;
 
-  function total() {
+  function countTotalFeedback() {
     return good + neutral + bad;
   }
 
-  function average() {
-    const t = total();
+  function countPositiveFeedbackPercentage() {
+    const t = countTotalFeedback();
     return Math.round((good * 100 + neutral * 50) / t);
   }
-
-  // total: this.state.total + 1,
-  //     average: Math.round(this.state.percentage / (this.state.total + 1)),
 
   return (
     <div className={css.list}>
       <p className={css.item}>Good: {good}</p>
       <p className={css.item}>Neutral: {neutral}</p>
       <p className={css.item}>Bad: {bad}</p>
-      <p className={css.item}>Total: {total()}</p>
-      <p className={css.item}>Percents: {average()}</p>
+      <p className={css.item}>Total: {countTotalFeedback()}</p>
+      <p className={css.item}>Percents: {countPositiveFeedbackPercentage()}</p>
     </div>
   );
+};
+
+Stats.propTypes = {
+  props: PropTypes.objectOf(PropTypes.number),
 };
 
 export default Stats;

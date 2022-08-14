@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Button from 'components/Button/Button';
 import css from './Feedback.module.css';
 import Stats from 'components/Stats/Stats';
+import FeedbackOptions from 'components/FeedbackOptions/FeedbackOptions';
 
 class MyClassComponent extends Component {
   state = {
@@ -11,6 +12,7 @@ class MyClassComponent extends Component {
   };
 
   incGood = () => {
+    console.log('be');
     this.setState({
       good: this.state.good + 1,
     });
@@ -31,12 +33,11 @@ class MyClassComponent extends Component {
   render() {
     return (
       <div className={css.container}>
-        <h2>Okay, leave feedback</h2>
-        <div className={css.buttons}>
-          <Button name="good" action={this.incGood} />
-          <Button name="neutral" action={this.incNeutral} />
-          <Button name="bad" action={this.incBad} />
-        </div>
+        <FeedbackOptions
+          good={this.incGood}
+          neutral={this.incNeutral}
+          bad={this.incBad}
+        />
         <h2>Stats</h2>
         <Stats
           props={{
