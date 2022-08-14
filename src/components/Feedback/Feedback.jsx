@@ -8,38 +8,23 @@ class MyClassComponent extends Component {
     good: null,
     neutral: null,
     bad: null,
-    percentage: null,
-    total: null,
-    average: null,
   };
 
   incGood = () => {
     this.setState({
       good: this.state.good + 1,
-      total: this.state.total + 1,
-      percentage: this.state.percentage + 100,
-      average: Math.round(
-        (this.state.percentage + 100) / (this.state.total + 1)
-      ),
     });
   };
 
   incNeutral = () => {
     this.setState({
       neutral: this.state.neutral + 1,
-      total: this.state.total + 1,
-      percentage: this.state.percentage + 50,
-      average: Math.round(
-        (this.state.percentage + 50) / (this.state.total + 1)
-      ),
     });
   };
 
   incBad = () => {
     this.setState({
       bad: this.state.bad + 1,
-      total: this.state.total + 1,
-      average: Math.round(this.state.percentage / (this.state.total + 1)),
     });
   };
 
@@ -58,8 +43,6 @@ class MyClassComponent extends Component {
             good: this.state.good,
             neutral: this.state.neutral,
             bad: this.state.bad,
-            total: this.state.total,
-            average: this.state.average,
           }}
         />
       </div>
