@@ -3,3 +3,9 @@
   margin: 0 auto;
   padding: 50px;
 }
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  width: 400px;
+}
