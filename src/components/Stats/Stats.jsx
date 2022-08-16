@@ -6,13 +6,8 @@ const Stats = ({ good, neutral, bad }) => {
     return <p>No stats</p>;
   }
 
-  function total() {
-    return good + neutral + bad;
-  }
-
   function average() {
-    const t = total();
-    return Math.round((good * 100 + neutral * 50) / t);
+    return Math.round((good / (good + bad)) * 100);
   }
 
   return (
@@ -20,7 +15,7 @@ const Stats = ({ good, neutral, bad }) => {
       <p className={css.item}>Good: {good}</p>
       <p className={css.item}>Neutral: {neutral}</p>
       <p className={css.item}>Bad: {bad}</p>
-      <p className={css.item}>Total: {total()}</p>
+      <p className={css.item}>Total: {good + neutral + bad}</p>
       <p className={css.item}>Percents: {average()}</p>
     </div>
   );
