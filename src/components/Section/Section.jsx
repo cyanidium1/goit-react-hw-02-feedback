@@ -7,3 +7,5 @@ const Section = () => {
 };
 
 export default Section;
+
+// so why did I make this code? nobody knows ¯\_(ツ)_/¯

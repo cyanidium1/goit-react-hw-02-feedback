@@ -1,11 +1,10 @@
 import css from './Stats.module.css';
+import PropTypes from 'prop-types';
 
-const Stats = ({ props }) => {
-  if (!props.good && !props.neutral && !props.bad) {
+const Stats = ({ good, neutral, bad }) => {
+  if (!good && !neutral && !bad) {
     return <p>No stats</p>;
   }
-
-  const { good, neutral, bad } = props;
 
   function total() {
     return good + neutral + bad;
@@ -25,6 +24,12 @@ const Stats = ({ props }) => {
       <p className={css.item}>Percents: {average()}</p>
     </div>
   );
+};
+
+Stats.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
 };
 
 export default Stats;
