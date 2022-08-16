@@ -16,9 +16,6 @@ const Stats = ({ props }) => {
     return Math.round((good * 100 + neutral * 50) / t);
   }
 
-  // total: this.state.total + 1,
-  //     average: Math.round(this.state.percentage / (this.state.total + 1)),
-
   return (
     <div className={css.list}>
       <p className={css.item}>Good: {good}</p>
